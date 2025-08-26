@@ -1,4 +1,3 @@
-import React from "react";
 import { FaSignOutAlt, FaUser } from "react-icons/fa";
 import { FaBoxOpen, FaClipboardList, FaStore } from "react-icons/fa6";
 import { Link, NavLink, useNavigate } from "react-router-dom";

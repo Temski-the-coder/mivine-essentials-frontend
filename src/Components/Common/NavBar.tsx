@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { HiBars3 } from "react-icons/hi2";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";

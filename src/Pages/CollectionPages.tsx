@@ -30,7 +30,10 @@ const CollectionPages = () => {
   useEffect(() => {
     if (!isSidebarOpen) return;
     const handleClickOutside = (e: MouseEvent) => {
-      if (sidebarRef.current && !sidebarRef.current.contains(e.target as Node)) {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(e.target as Node)
+      ) {
         setIsSidebarOpen(false);
       }
     };
@@ -273,9 +276,7 @@ const CollectionPages = () => {
       </button>
 
       {/* Mobile Sidebar Backdrop */}
-      {isSidebarOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden" />
-      )}
+      {isSidebarOpen && <div className="fixed inset-0 z-40 lg:hidden" />}
 
       {/* Desktop Sidebar */}
       <div

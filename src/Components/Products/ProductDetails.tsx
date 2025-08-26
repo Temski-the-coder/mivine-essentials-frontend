@@ -111,7 +111,7 @@ const ProductDetails = () => {
     if (selectedProduct.Images.length > 0) {
       setMainImage(selectedProduct.Images[0].url);
     }
-  }, [selectedProduct]);
+  }, []);
 
   const handleAddToCart = () => {
     if (!selectedSize || !selectedColor) {
