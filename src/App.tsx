@@ -1,34 +1,56 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import './index.css'
+import UserLayout from './Components/Layout/UserLayout'
+import Home from './Pages/Home'
+import { Toaster } from "sonner"
+import Login from './Pages/Login'
+import RegisterPage from './Pages/RegisterPage'
+import ProfilePage from './Pages/ProfilePage'
+import CollectionPages from './Pages/CollectionPages'
+import ProductDetails from './Components/Products/ProductDetails'
+import CheckOut from './Components/Cart/CheckOut'
+import OrderConfirmationPage from './Pages/OrderConfirmationPage'
+import OrderDetailsPage from './Pages/OrderDetailsPage'
+import MyOrderPage from './Pages/MyOrderPage'
+import AdminLayout from './Components/Admin/AdminLayout'
+import AdminHomePage from './Pages/AdminHomePage'
+import UserManagement from './Components/Admin/UserManagement'
+import ProductManagement from './Components/Admin/ProductManagement'
+import EditProductPage from './Components/Admin/EditProductPage'
+import OrderManagement from './Components/Admin/OrderManagement'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Mivine Essentials</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <BrowserRouter>
+    <Toaster position="top-right"/>
+    <Routes>
+      {/* User Layout */}
+      <Route path='/' element={<UserLayout />}> 
+      <Route path='home' element={<Home />} />
+      <Route index element={<Login />} /> 
+      <Route path='register' element={<RegisterPage />} />
+      <Route path='profile' element={<ProfilePage />} />
+      <Route path='collections/:collection' element={<CollectionPages />} />
+      <Route path='products/:Id' element={<ProductDetails />} />
+      <Route path='checkout' element={<CheckOut />} />
+      <Route path='order-confirmation' element={<OrderConfirmationPage />} />
+      <Route path='order/:id' element={<OrderDetailsPage />} />
+      <Route path='my-orders' element={<MyOrderPage />} />
+      </Route>
+      {/* User Layout */}
+
+
+      {/* Admin Layout */}
+      <Route path='/admin' element={<AdminLayout />}> 
+      <Route index element={<AdminHomePage />} />
+      <Route path='users' element={<UserManagement />}/>
+      <Route path='products' element={<ProductManagement />} />
+      <Route path='products/:id/edit' element={<EditProductPage />} />
+      <Route path='orders' element={<OrderManagement />} />
+      </Route>
+      {/* Admin Layout */}
+    </Routes>
+    </BrowserRouter>
   )
 }
 
