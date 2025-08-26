@@ -18,7 +18,6 @@ const UserLayout = () => {
        
         {/* Main Content */}
           <Outlet />
-          <Home />
         {/* Main Content */}
 
         

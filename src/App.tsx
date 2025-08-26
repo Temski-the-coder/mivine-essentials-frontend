@@ -25,10 +25,10 @@ const App = () => {
     <Toaster position="top-right"/>
     <Routes>
       {/* User Layout */}
-      <Route index element={<Login />} /> 
+      <Route path='login' element={<Login />} /> 
       <Route path='register' element={<RegisterPage />} />
-      <Route path='home' element={<UserLayout />}> 
-      <Route path='home' element={<Home />} />
+      <Route path='/' element={<UserLayout />}> 
+      <Route index element={<Home />} />
       <Route path='profile' element={<ProfilePage />} />
       <Route path='collections/:collection' element={<CollectionPages />} />
       <Route path='products/:Id' element={<ProductDetails />} />

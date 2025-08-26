@@ -94,7 +94,7 @@ const RegisterPage = () => {
           </button>
           <p className="mt-6 text-center text-sm justify-between flex">
             Already have an account?
-            <Link to="/" className="text-blue-600 hover:underline">
+            <Link to="/login" className="text-blue-600 hover:underline">
               Login here
             </Link>
           </p>
