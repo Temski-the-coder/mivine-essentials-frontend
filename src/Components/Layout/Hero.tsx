@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import rabbitHero from "../../assets/rabbit-hero.webp";
 import featured from "../../assets/featured.webp";
 import mensCollection from "../../assets/mens-collection.webp";

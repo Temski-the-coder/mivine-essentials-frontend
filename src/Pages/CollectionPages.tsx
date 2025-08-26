@@ -22,15 +22,15 @@ const CollectionPages = () => {
   const sidebarRef = useRef<HTMLDivElement>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const toggleSidebar = (e) => {
+  const toggleSidebar = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (e) e.stopPropagation();
     setIsSidebarOpen((prev) => !prev);
   };
 
   useEffect(() => {
     if (!isSidebarOpen) return;
-    const handleClickOutside = (e) => {
-      if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(e.target as Node)) {
         setIsSidebarOpen(false);
       }
     };
