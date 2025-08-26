@@ -62,6 +62,7 @@ const Login = () => {
           <button
             type="submit"
             className="w-full bg-black text-white p-2 rounded-lg cart hover:bg-blue-600"
+            onClick={() => navigate('home')}
           >
             Login
           </button>
