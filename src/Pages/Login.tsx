@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault();
     console.log("user Logged in:", { email, password });
    // navigate to home page after logging in
-    navigate('home');
+    navigate('/home');
   };
   return (
     <div className="flex">
@@ -62,7 +62,7 @@ const Login = () => {
           <button
             type="submit"
             className="w-full bg-black text-white p-2 rounded-lg cart hover:bg-blue-600"
-            onClick={() => navigate('home')}
+            onClick={() => navigate('/home')}
           >
             Login
           </button>
