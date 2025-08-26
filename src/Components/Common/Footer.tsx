@@ -1,4 +1,3 @@
-import React from "react";
 import { FaInstagram, FaTiktok } from "react-icons/fa";
 import { FaMeta, FaXTwitter } from "react-icons/fa6";
 import { IoMdSend } from "react-icons/io";

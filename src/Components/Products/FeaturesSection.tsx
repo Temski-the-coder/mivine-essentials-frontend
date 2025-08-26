@@ -1,4 +1,3 @@
-import React from 'react'
 import { FaArrowsRotate } from 'react-icons/fa6';
 import { GiShoppingBag } from "react-icons/gi";
 import { MdOutlineCreditCard } from 'react-icons/md';

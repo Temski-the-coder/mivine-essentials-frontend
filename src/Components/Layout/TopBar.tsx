@@ -1,4 +1,3 @@
-import React from 'react'
 import { FaPhoneVolume, FaShippingFast } from 'react-icons/fa'
 import { FaInstagram, FaMeta, FaXTwitter,  } from 'react-icons/fa6'
 
