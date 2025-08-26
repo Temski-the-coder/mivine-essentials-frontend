@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   IoIosArrowDropleftCircle,
   IoIosArrowDroprightCircle,
@@ -111,7 +111,7 @@ const NewArrivals = () => {
     },
   ];
 
-  const handleMouseDown = (e) => {
+  const handleMouseDown = (e: { pageX: number; }) => {
     setIsScrolling(true);
     if (scrollRef.current) {
       setScrollPosition(e.pageX - scrollRef.current.offsetLeft);
@@ -119,18 +119,18 @@ const NewArrivals = () => {
     }
   };
 
-  const handleMouseUpOrLeave = (e) => {
+  const handleMouseUpOrLeave = () => {
     setIsScrolling(false);
   };
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isScrolling || !scrollRef.current) return;
     const x = e.pageX - scrollRef.current.offsetLeft;
     const walk = (x - scrollPosition) * 2; // Adjust scroll speed
     scrollRef.current.scrollLeft = scrollLeft - walk;
   };
 
-  const scroll = (direction) => {
+  const scroll = (direction: string) => {
     const scrollAmount = direction === "left" ? -300 : 300;
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
