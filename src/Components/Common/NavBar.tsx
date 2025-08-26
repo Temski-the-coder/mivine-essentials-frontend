@@ -65,7 +65,7 @@ const NavBar = () => {
         </div>
         {/* right side */}
         <div className="flex items-center space-x-4">
-          <Link to="/admin" className="block bg-black px-3 rounded-lg text-sm text-white hover:bg-blue-800">Click to become Admin</Link>
+          <Link to="/admin" className="block bg-black px-3 rounded-lg text-sm text-white hover:bg-blue-800">Admin Panel</Link>
 
           <Link to="/profile" className="text-gray-500 hover:text-black">
             <FaRegCircleUser className="h-6 w-6" />
