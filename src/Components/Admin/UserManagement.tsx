@@ -17,7 +17,9 @@ const UserManagement = () => {
     role: "customer",
   });
 
-  const handleNameChange = (e: { target: { name: any; value: any; }; }) => {
+  const handleNameChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -42,7 +44,7 @@ const UserManagement = () => {
 
   const handleDeleteUser = (userId: string) => {
     if(window.confirm("Are you sure you want to delete this account")) {
-      console.log("deleting user with ID, userId");
+      console.log(`deleting user with ID: ${userId}`);
       
     }
   }
