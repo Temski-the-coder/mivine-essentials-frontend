@@ -25,7 +25,7 @@ const App = () => {
     <Toaster position="top-right"/>
     <Routes>
       {/* User Layout */}
-      <Route index element={<Login />} /> 
+      <Route index path='login' element={<Login />} /> 
       <Route path='register' element={<RegisterPage />} />
       <Route path='/' element={<UserLayout />}> 
       <Route path='home' element={<Home />} />
