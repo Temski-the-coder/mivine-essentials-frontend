@@ -27,7 +27,7 @@ const App = () => {
       {/* User Layout */}
       <Route index element={<Login />} /> 
       <Route path='register' element={<RegisterPage />} />
-      <Route path='/' element={<UserLayout />}> 
+      <Route path='userlayout' element={<UserLayout />}> 
       <Route path='home' element={<Home />} />
       <Route path='profile' element={<ProfilePage />} />
       <Route path='collections/:collection' element={<CollectionPages />} />

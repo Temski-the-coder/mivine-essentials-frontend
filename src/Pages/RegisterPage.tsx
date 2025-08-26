@@ -1,14 +1,14 @@
-import {useState} from "react";
-import Register from '../assets/register.webp'
+import { useState } from "react";
+import Register from "../assets/register.webp";
 import { Link } from "react-router-dom";
 
 const RegisterPage = () => {
   // Placeholder for login functionality
-    const [name, setName] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     console.log("user registered:", { name, email, password });
   };
@@ -23,9 +23,7 @@ const RegisterPage = () => {
           <div className="flex justify-center mb-6">
             <h1 className="text-xl logo">Mivine Essentials</h1>
           </div>
-          <h2 className="text-2xl text-center mb-6 hero-text">
-            Register
-          </h2>
+          <h2 className="text-2xl text-center mb-6 hero-text">Register</h2>
           <p className="text-center mb-6">Enter your Details</p>
           <div className="mb-4">
             <label
@@ -94,21 +92,26 @@ const RegisterPage = () => {
           >
             Sign Up
           </button>
-            <p className="mt-6 text-center text-sm justify-between flex">Already have an account?
-                <Link to="index" className="text-blue-600 hover:underline">
-                Login here
-                </Link>
-            </p>
+          <p className="mt-6 text-center text-sm justify-between flex">
+            Already have an account?
+            <Link to="/" className="text-blue-600 hover:underline">
+              Login here
+            </Link>
+          </p>
         </form>
       </div>
 
       <div className="hidden md:block w-1/2 bg-gray-100">
         <div className="h-full flex flex-col justify-center items-center">
-            <img src={Register} alt="Login To Your Account" className="object-cover h-[750px] w-full" />
+          <img
+            src={Register}
+            alt="Login To Your Account"
+            className="object-cover h-[750px] w-full"
+          />
         </div>
       </div>
     </div>
   );
 };
 
-export default RegisterPage
+export default RegisterPage;
