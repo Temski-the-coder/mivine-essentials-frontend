@@ -13,7 +13,7 @@ const FilterSideBar = () => {
     brand: string[];
     minPrice: number;
     maxPrice: number;
-  }>({
+  }& { [key: string]: unknown }>({
     category: "",
     gender: "",
     color: "",
@@ -106,15 +106,15 @@ const FilterSideBar = () => {
 
   const handleFiltersChange = (e: FilterChangeEvent): void => {
     const { name, value, type, checked } = e.target;
-    let newFilters = { ...filters };
+    const newFilters = { ...filters };
 
     if (type === "checkbox") {
       if (checked) {
-        newFilters[name] = [...(filters[name] || []), value];
+        newFilters[name] = [...(Array.isArray(filters[name]) ? filters[name] : []), value];
       } else {
-        newFilters[name] = (filters[name] || []).filter(
-          (item: string) => item !== value
-        );
+        newFilters[name] = Array.isArray(filters[name])
+          ? (filters[name] as string[]).filter((item: string) => item !== value)
+          : [];
       }
     } else {
       newFilters[name] = value;
@@ -123,23 +123,38 @@ const FilterSideBar = () => {
     updateURLParams(newFilters);
   };
 
-  const updateURLParams = (newFilters) => {
+  interface Filters {
+    category: string;
+    gender: string;
+    color: string;
+    size: string[];
+    material: string[];
+    brand: string[];
+    minPrice: number;
+    maxPrice: number;
+    [key: string]: unknown;
+  }
+
+  interface UpdateURLParams {
+    (newFilters: Filters): void;
+  }
+
+  const updateURLParams: UpdateURLParams = (newFilters) => {
     const params = new URLSearchParams();
-    // top wear and size category
     Object.keys(newFilters).forEach((key) => {
-      if (Array.isArray(newFilters[key]) && newFilters[key].length > 0) {
-        params.append(key, newFilters[key].join(","));
+      if (Array.isArray(newFilters[key]) && (newFilters[key] as unknown[]).length > 0) {
+        params.append(key, (newFilters[key] as string[]).join(","));
       } else if (newFilters[key]) {
-        params.append(key, newFilters[key]);
+        params.append(key, String(newFilters[key]));
       }
     });
     setSearchParam(params);
-    navigate(`?${params.toString()}`); //search bar would be something like this=?category=Bottom+wear&size=xs%cs
+    navigate(`?${params.toString()}`);
   };
 
-  const handlePriceRangeChange = (e) => {
-    const newPriceRange = e.target.value ;
-    setPriceRange([0, newPriceRange]);
+  const handlePriceRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newPriceRange = Number(e.target.value);
+    setPriceRange({ min: 0, max: newPriceRange });
     const newFilters = { ...filters, minPrice: 0, maxPrice: newPriceRange };
     setFilters(newFilters);
     updateURLParams(newFilters);
@@ -199,7 +214,7 @@ const FilterSideBar = () => {
                 type="radio"
                 name="color"
                 value={color}
-                onClick={handleFiltersChange}
+                onChange={handleFiltersChange}
                 checked={filters.color === color}
                 className="mr-2 h-4 w-4 text-blue-600 border-gray-200 focus:ring-blue-400"
               />
