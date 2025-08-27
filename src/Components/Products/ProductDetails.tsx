@@ -273,7 +273,7 @@ const ProductDetails = () => {
         <div className="mt-20">
           <h2 className="text-2xl text-center font-medium mb-4">
             You May Also Like
-          </h2> 
+          </h2>
           <ProductGrid products={relatedProducts} />
         </div>
       </div>

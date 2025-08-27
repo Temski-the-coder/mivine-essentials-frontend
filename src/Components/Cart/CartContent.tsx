@@ -2,7 +2,7 @@ import React from "react";
 import { IoPricetags } from "react-icons/io5";
 import { TbCurrencyNaira } from "react-icons/tb";
 
-type CartProduct = {
+type cartProducts = {
   productId: number;
   name: string;
   Size: string;
@@ -12,10 +12,10 @@ type CartProduct = {
 };
 
 type CartContentProps = {
-  cartProducts: CartProduct[];
+  cartProducts: cartProducts[];
 };
 
-const defaultCartProducts: CartProduct[] = [
+const cartProducts = [
   {
     productId: 1,
     name: "Mens Classic Retro shirt CR-1",
@@ -53,10 +53,7 @@ const defaultCartProducts: CartProduct[] = [
       "https://img.fantaskycdn.com/de70a1af3c1313a32eceba5003ab82df_750x.jpeg",
   },
 ];
-
-const CartContent: React.FC<CartContentProps> = ({
-  cartProducts = defaultCartProducts,
-}) => {
+const CartContent: React.FC<CartContentProps> = ({ cartProducts }) => {
   return (
     <div>
       {cartProducts.length === 0 ? (

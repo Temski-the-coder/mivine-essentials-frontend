@@ -5,6 +5,7 @@ import mensCollection from "../../assets/mens-collection.webp";
 import womensCollection from "../../assets/womens-collection.webp";
 import { Link } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { FaArrowTurnDown } from "react-icons/fa6";
 
 const heroImages = [rabbitHero, featured, mensCollection, womensCollection];
 
@@ -65,14 +66,14 @@ const Hero = () => {
               hot days
             </p>
 
-            <p className="flex mt-25 hero-text items-center justify-center text-lg gap-2 text-white">
+            <p className="flex-col md:flex sm:mb-1 mt-22 hero-text items-center justify-center text-lg gap-2 text-white w-full">
               Your refined summer style awaits
-              <FaLongArrowAltRight />
+              <FaLongArrowAltRight className="hidden md:visible"/>
               <Link
-                to="#"
-                className="bg-white text-gray-900 px-4 py-1 rounded-full text-lg hover:bg-black hover:text-white"
+                to="collections/:collection"
+                className="bg-white text-gray-900 px-4 py-1 flex rounded-full text-lg sm:text-sm justify-center hover:bg-black hover:text-white"
               >
-                Shop the Heat
+                Shop the Heat <FaArrowTurnDown className="mt-1.5 visible md:hidden"/>
               </Link>
             </p>
           </div>

@@ -7,7 +7,20 @@ import SearchBar from "./SearchBar";
 import CartDrawer from "../Layout/CartDrawer";
 import { IoMdClose } from "react-icons/io";
 
-const NavBar = () => {
+type CartProduct = {
+  productId: number;
+  name: string;
+  Size: string;
+  quantity: string;
+  price: string;
+  image: string;
+};
+
+type NavBarProps = {
+  cartProducts: CartProduct[];
+};
+
+const NavBar: React.FC<NavBarProps> = ({ cartProducts }) => {
   const [openCart, setOpenCart] = useState(false);
   const [openMobileNav, setOpenMobileNav] = useState(false);
 
@@ -18,11 +31,14 @@ const NavBar = () => {
   const toggleCartDrawer = () => {
     setOpenCart(!openCart);
   };
+
+  const cartCount = cartProducts.length;
+
   return (
     <>
       <nav className="container flex mx-auto items-center justify-between px-6 py-4 border-b border-gray-700">
         <div>
-          <Link to="/" className="text-2xl logo">
+          <Link to="/" className="text-md md:text-2xl logo">
             Mivine Essentials
           </Link>
         </div>
@@ -36,28 +52,28 @@ const NavBar = () => {
           </Link>
 
           <Link
-            to="#"
+            to="/collections/all"
             className="text-gray-600 hover:text-black text-sm uppercase list"
           >
             women
           </Link>
 
           <Link
-            to="#"
+            to="/collections/all"
             className="text-gray-600 hover:text-black text-sm uppercase list"
           >
             Children
           </Link>
 
           <Link
-            to="#"
+            to="/collections/all"
             className="text-gray-600 hover:text-black text-sm uppercase list"
           >
             Top Wears
           </Link>
 
           <Link
-            to="#"
+            to="/collections/all"
             className="text-gray-600 hover:text-black text-sm uppercase list"
           >
             Bottom Wears
@@ -65,7 +81,12 @@ const NavBar = () => {
         </div>
         {/* right side */}
         <div className="flex items-center space-x-4">
-          <Link to="/admin" className="bg-black px-3 rounded-lg text-sm text-white hover:bg-blue-800 w-fit">Admin Panel</Link>
+          <Link
+            to="/admin"
+            className="bg-black px-3 py-1 flex gap-1 rounded-lg text-xs text-white hover:bg-blue-800 w-fit"
+          >
+            Admin <span>Panel</span>
+          </Link>
 
           <Link to="/profile" className="text-gray-500 hover:text-black">
             <FaRegCircleUser className="h-6 w-6" />
@@ -76,9 +97,11 @@ const NavBar = () => {
             className="relative text-gray-500 hover:text-black cursor"
           >
             <MdOutlineShoppingCartCheckout className="h-6 w-6 cursor-pointer" />
-            <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full px-1 py-0.3">
-              4
-            </span>
+            {cartCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full px-1 py-0.3">
+                {cartCount}
+              </span>
+            )}
           </button>
 
           {/* Searchbar */}
@@ -90,7 +113,11 @@ const NavBar = () => {
           </button>
         </div>
       </nav>
-      <CartDrawer openCart={openCart} toggleCartDrawer={toggleCartDrawer} />
+      <CartDrawer
+        openCart={openCart}
+        toggleCartDrawer={toggleCartDrawer}
+        cartProducts={cartProducts}
+      />
 
       {/* mobile navbar */}
       <div
@@ -108,7 +135,7 @@ const NavBar = () => {
           <h2 className="text-xl ">Menu</h2>
           <nav className="space-y-4">
             <Link
-              to="#"
+              to="/collections/all"
               onClick={toggleMobileNav}
               className="block text-gray-600 hover:text-blue-600"
             >
@@ -116,7 +143,7 @@ const NavBar = () => {
             </Link>
 
             <Link
-              to="#"
+              to="/collections/all"
               onClick={toggleMobileNav}
               className="block text-gray-600 hover:text-blue-600"
             >
@@ -124,7 +151,7 @@ const NavBar = () => {
             </Link>
 
             <Link
-              to="#"
+              to="/collections/all"
               onClick={toggleMobileNav}
               className="block text-gray-600 hover:text-blue-600"
             >
@@ -132,7 +159,7 @@ const NavBar = () => {
             </Link>
 
             <Link
-              to="#"
+              to="/collections/all"
               onClick={toggleMobileNav}
               className="block text-gray-600 hover:text-blue-600"
             >
@@ -140,7 +167,7 @@ const NavBar = () => {
             </Link>
 
             <Link
-              to="#"
+              to="/collections/all"
               onClick={toggleMobileNav}
               className="block text-gray-600 hover:text-blue-600"
             >
