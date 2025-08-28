@@ -1,13 +1,20 @@
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import ProductGrid from "./ProductGrid";
+import VintageShirt from "../../assets/Men's wears/download (11).jpg";
+import UnisexWear from "../../assets/Men's wears/fashion.jpg"
+import CasualWear from "../../assets/Men's wears/Manfinity Homme Men Random Striped Colorblock Shirt.jpg"
+import BeachFit from "../../assets/Men's wears/Men's Patchwork Print.jpg"
+import VintageCF from "../../assets/Men's wears/download (12).jpg"
+import BoyPatch from "../../assets/Men's wears/Boys Patched Pocket Front Shirt & Knot Front Trousers.jpg"
+
 
 const selectedProduct = {
   _id: "1",
-  name: "Stylish Jacket",
-  price: 120,
-  originalPrice: 150,
-  description: "A stylish jacket perfect for all seasons.",
+  name: "Stylish Summer Fits",
+  price: 12000,
+  originalPrice: 15000,
+  description: "A complete summer fit for all seasons.",
   brand: "FashionBrand",
   material: "Leather",
   sizes: ["S", "M", "L", "XL"],
@@ -15,13 +22,13 @@ const selectedProduct = {
   colors: ["Red", "Black"],
   Images: [
     {
-      url: "https://picsum.photos/500/500?random=1",
-      alt: "Stylish Jacket Image",
+      url: VintageShirt,
+      alt: "Stylish vintage shirt",
     },
 
     {
-      url: "https://picsum.photos/500/500?random=2",
-      alt: "Stylish Jacket Image 2",
+      url: UnisexWear,
+      alt: "Men Unisex Wear",
     },
   ],
 };
@@ -30,8 +37,8 @@ const relatedProducts = [
   {
     _id: "1",
     name: "Casual Shirt",
-    price: 50,
-    originalPrice: 70,
+    price: 16000,
+    originalPrice: 21000,
     description: "A casual shirt for everyday wear.",
     brand: "Versace",
     material: "Cotton",
@@ -39,7 +46,7 @@ const relatedProducts = [
     colors: ["Blue", "White"],
     Images: [
       {
-        url: "https://picsum.photos/500/500?random=3",
+        url: CasualWear,
         alt: "Casual Shirt Image",
       },
     ],
@@ -47,17 +54,17 @@ const relatedProducts = [
 
   {
     _id: "2",
-    name: "Casual Shirt",
-    price: 50,
-    originalPrice: 70,
-    description: "A casual shirt for everyday wear.",
+    name: "Beach fit",
+    price: 25000,
+    originalPrice: 30000,
+    description: "A beach wear for Summer Hangouts.",
     brand: "Versace",
     material: "Cotton",
     sizes: ["M", "L"],
     colors: ["Blue", "White"],
     Images: [
       {
-        url: "https://picsum.photos/500/500?random=4",
+        url: BeachFit,
         alt: "Casual Shirt Image",
       },
     ],
@@ -65,17 +72,17 @@ const relatedProducts = [
 
   {
     _id: "3",
-    name: "Casual Shirt",
-    price: 50,
-    originalPrice: 70,
-    description: "A casual shirt for everyday wear.",
+    name: "Full Vintage Wear",
+    price: 15000,
+    originalPrice: 22000,
+    description: "A stylish full vintage wear.",
     brand: "Versace",
     material: "Cotton",
     sizes: ["M", "L"],
     colors: ["Blue", "White"],
     Images: [
       {
-        url: "https://picsum.photos/500/500?random=5",
+        url: VintageCF,
         alt: "Casual Shirt Image",
       },
     ],
@@ -83,9 +90,9 @@ const relatedProducts = [
 
   {
     _id: "4",
-    name: "Casual Shirt",
-    price: 50,
-    originalPrice: 70,
+    name: "Boy patched full fit",
+    price: 25000,
+    originalPrice: 35000,
     description: "A casual shirt for everyday wear.",
     brand: "Versace",
     material: "Cotton",
@@ -93,7 +100,7 @@ const relatedProducts = [
     colors: ["Blue", "White"],
     Images: [
       {
-        url: "https://picsum.photos/500/500?random=6",
+        url: BoyPatch,
         alt: "Casual Shirt Image",
       },
     ],
@@ -180,10 +187,10 @@ const ProductDetails = () => {
           {/* right side */}
           <div className="md:w-1/2 md:ml-10">
             <h1 className="text-2xl font-bold mb-2">{selectedProduct.name}</h1>
-            <p className="text-lg text-gray-700 mb-4">
-              ${selectedProduct.price}{" "}
+            <p className="text-lg text-gray-700 mb-4 gap-2">
+              ₦{selectedProduct.price}{" "}
               <span className="line-through text-gray-500">
-                ${selectedProduct.originalPrice}
+                ₦{selectedProduct.originalPrice}
               </span>
             </p>
             <p className="text-gray-600 mb-4">{selectedProduct.description}</p>

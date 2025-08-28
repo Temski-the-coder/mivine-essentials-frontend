@@ -31,7 +31,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
               />
             </div>
             <h3 className="text-sm mb-2">{product.name || "Product Name"}</h3>
-            <p className="text-sm text-gray-600 font-medium tracking-tighter">${product.price || "Product Price"}</p>
+            <p className="text-sm text-gray-600 font-medium tracking-tighter">₦{product.price || "Product Price"}</p>
           </div>
         </Link>
       ))}

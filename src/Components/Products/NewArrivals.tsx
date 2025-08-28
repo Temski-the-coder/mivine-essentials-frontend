@@ -17,7 +17,7 @@ const NewArrivals = () => {
     {
       _id: "1",
       name: "Stylish Jacket",
-      price: 120,
+      price: 10000,
       Images: [
         {
           url: "https://images.riverisland.com/image/upload/t_ProductImagePortraitSmall/f_auto/q_auto/377183_alt1?_a=BATAV5AA0",
@@ -29,7 +29,7 @@ const NewArrivals = () => {
     {
       _id: "2",
       name: "Cargo Shorts",
-      price: 120,
+      price: 5000,
       Images: [
         {
           url: "https://png.pngtree.com/png-vector/20240801/ourmid/pngtree-men-s-casual-cargo-cut-pants-shorts-png-image_13321361.png",
@@ -41,7 +41,7 @@ const NewArrivals = () => {
     {
       _id: "3",
       name: "Crop Tops",
-      price: 120,
+      price: 6000,
       Images: [
         {
           url: "https://media.istockphoto.com/id/1457860785/photo/white-crop-top-mockup-with-round-neckline-3d-rendering-female-t-shirt-with-label-isolated-on.jpg?s=612x612&w=0&k=20&c=pUEaMzO-a5Bjj6C6vqFbOIuizGX3erl2DCRu0G1qfD0=",
@@ -53,7 +53,7 @@ const NewArrivals = () => {
     {
       _id: "4",
       name: "Wide-brimmed Hats & Bucket Hats",
-      price: 120,
+      price: 5000,
       Images: [
         {
           url: "https://www.shutterstock.com/shutterstock/videos/3589563953/thumb/1.jpg?ip=x480",
@@ -65,7 +65,7 @@ const NewArrivals = () => {
     {
       _id: "5",
       name: "Two-Piece Outfits",
-      price: 120,
+      price: 10000,
       Images: [
         {
           url: "https://m.media-amazon.com/images/I/51d3tzt98sL._SY1000_.jpg",
@@ -77,7 +77,7 @@ const NewArrivals = () => {
     {
       _id: "6",
       name: "Lightweight Kimonos",
-      price: 120,
+      price: 13000,
       Images: [
         {
           url: "https://m.media-amazon.com/images/I/71aY3sV3HHL._AC_SX679_.jpg",
@@ -89,7 +89,7 @@ const NewArrivals = () => {
     {
       _id: "7",
       name: "Linen Shirts",
-      price: 120,
+      price: 16000,
       Images: [
         {
           url: "https://m.media-amazon.com/images/I/71NuqQbi1FL._AC_SY879_.jpg",
@@ -101,7 +101,7 @@ const NewArrivals = () => {
     {
       _id: "8",
       name: "Cargo pants",
-      price: 120,
+      price: 12000,
       Images: [
         {
           url: "https://m.media-amazon.com/images/I/61pco5jZ4wL._AC_UL480_FMwebp_QL65_.jpg",
@@ -219,7 +219,7 @@ const NewArrivals = () => {
               <div className="absolute bottom-0 left-0 right-0 text-white bg-black/50 backdrop-blur-md p-4 rounded-b-lg">
                 <Link to={`/products/${product._id}`} className="block">
                   <h3 className="font-medium">{product.name}</h3>
-                  <p className="text-sm text-gray-300">${product.price}</p>
+                  <p className="text-sm text-gray-300">₦{product.price}</p>
                 </Link>
               </div>
             </div>

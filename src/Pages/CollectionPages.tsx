@@ -3,6 +3,18 @@ import { FaFilter } from "react-icons/fa";
 import FilterSideBar from "../Components/Products/FilterSideBar";
 import ProductGrid from "../Components/Products/ProductGrid";
 import SortOptions from "../Components/Products/SortOptions";
+import MensPlainTwoPieceFit from "../assets/Men's wears/download (10).jpg"
+import VintageFit from "../assets/Women's wears/download (17).jpg"
+import SummerFit from "../assets/Women's wears/download (16).jpg"
+import GrooveVintage from "../assets/Men's wears/Ensemble deux pièces .jpg"
+import HommensCamisa from "../assets/Men's wears/Homens Camisa Alce Bordado Bloco de cores Sem Camiseta.jpg"
+import CargoFit from "../assets/Men's wears/download (9).jpg"
+import VintagePalm from "../assets/Men's wears/Men's Palm Tree Print Short Sleeve Shirt And Shorts Casual Vacation Suit.jpg"
+import VintageSHEIN from "../assets/Men's wears/WishList _ SHEIN.jpg"
+import ApricotFit from "../assets/Women's wears/Apricot Plaid Shirt Collar Bow Tie Ladies Two-Piece Set.jpg"
+import TropicalFit from "../assets/Women's wears/Plus Tropical Print Drop Shoulder Top With Shorts.jpg"
+import HawaiiFit from "../assets/Women's wears/Search WoMens Hawaiian button _ SHEIN USA.jpg"
+import SheinFit from "../assets/Women's wears/SHEIN VCAY Plus Button Front Blouse & Tie Waist Shorts _ SHEIN USA.jpg"
 
 type Product = {
   _id: string;
@@ -48,53 +60,53 @@ const CollectionPages = () => {
       const fetchProducts = [
         {
           _id: "1",
-          name: "Casual Shirt",
-          price: 50,
-          originalPrice: 70,
-          description: "A casual shirt for everyday wear.",
-          brand: "Versace",
+          name: "Men's Plain two piece fit",
+          price: 15000,
+          originalPrice: 20000,
+          description: "A Fine piece for outings.",
+          brand: "Mivine Essentials",
           material: "Cotton",
           sizes: ["M", "L"],
-          colors: ["Blue", "White"],
+          colors: ["Black", "Brown"],
           Images: [
             {
-              url: "https://picsum.photos/500/500?random=8",
-              alt: "Casual Shirt Image",
+              url: MensPlainTwoPieceFit,
+              alt: "Men's Plain two piece fit Image",
             },
           ],
         },
 
         {
           _id: "2",
-          name: "Casual Shirt",
-          price: 50,
-          originalPrice: 70,
-          description: "A casual shirt for everyday wear.",
-          brand: "Versace",
+          name: "Women's Vintage fit",
+          price: 15000,
+          originalPrice: 17000,
+          description: "A Complete vintage fit for women during the summer.",
+          brand: "Mivine Essentials",
           material: "Cotton",
           sizes: ["M", "L"],
-          colors: ["Blue", "White"],
+          colors: ["Green"],
           Images: [
             {
-              url: "https://picsum.photos/500/500?random=9",
-              alt: "Casual Shirt Image",
+              url: VintageFit,
+              alt: "Summer Vintage Fit for women",
             },
           ],
         },
 
         {
           _id: "3",
-          name: "Casual Shirt",
-          price: 50,
-          originalPrice: 70,
-          description: "A casual shirt for everyday wear.",
-          brand: "Versace",
+          name: "Summer fit",
+          price: 15000,
+          originalPrice: 17000,
+          description: "A fine fit for any outing.",
+          brand: "Mivine Essentials",
           material: "Cotton",
           sizes: ["M", "L"],
-          colors: ["Blue", "White"],
+          colors: ["Black", "Orange"],
           Images: [
             {
-              url: "https://picsum.photos/500/500?random=10",
+              url: SummerFit,
               alt: "Casual Shirt Image",
             },
           ],
@@ -102,17 +114,17 @@ const CollectionPages = () => {
 
         {
           _id: "4",
-          name: "Casual Shirt",
-          price: 50,
-          originalPrice: 70,
-          description: "A casual shirt for everyday wear.",
-          brand: "Versace",
+          name: "vintage fit with palm groove design",
+          price: 10000,
+          originalPrice: 20000,
+          description: "The perfect fit for beach hangouts.",
+          brand: "Mivine Essentials",
           material: "Cotton",
           sizes: ["M", "L"],
-          colors: ["Blue", "White"],
+          colors: ["Black", "White"],
           Images: [
             {
-              url: "https://picsum.photos/500/500?random=11",
+              url: GrooveVintage,
               alt: "Casual Shirt Image",
             },
           ],
@@ -120,144 +132,144 @@ const CollectionPages = () => {
 
         {
           _id: "5",
-          name: "Casual Shirt",
-          price: 50,
-          originalPrice: 70,
-          description: "A casual shirt for everyday wear.",
-          brand: "Versace",
+          name: "Hommens Vintage Shirt design",
+          price: 15000,
+          originalPrice: 20000,
+          description: "A stylish vintage shirt for men.",
+          brand: "Mivine Essentials",
           material: "Cotton",
           sizes: ["M", "L"],
-          colors: ["Blue", "White"],
+          colors: ["Gray", "Red", "Black"],
           Images: [
             {
-              url: "https://picsum.photos/500/500?random=12",
-              alt: "Casual Shirt Image",
+              url: HommensCamisa,
+              alt: "Hommens Vintage Shirt design Image",
             },
           ],
         },
 
         {
           _id: "6",
-          name: "Casual Shirt",
-          price: 50,
-          originalPrice: 70,
-          description: "A casual shirt for everyday wear.",
-          brand: "Versace",
+          name: "Cargo Fit",
+          price: 16000,
+          originalPrice: 23000,
+          description: "The perfect fit for any occasion.",
+          brand: "Mivine Essentials",
           material: "Cotton",
           sizes: ["M", "L"],
           colors: ["Blue", "White"],
           Images: [
             {
-              url: "https://picsum.photos/500/500?random=13",
-              alt: "Casual Shirt Image",
+              url: CargoFit,
+              alt: "Cargo Fit Image",
             },
           ],
         },
 
         {
           _id: "7",
-          name: "Casual Shirt",
-          price: 50,
-          originalPrice: 70,
-          description: "A casual shirt for everyday wear.",
-          brand: "Versace",
+          name: "Men's Palm Tree Vintage Fit",
+          price: 11000,
+          originalPrice: 18000,
+          description: "The Right Fit for Summer Days.",
+          brand: "Mivine Essentials",
           material: "Cotton",
           sizes: ["M", "L"],
-          colors: ["Blue", "White"],
+          colors: ["Brown"],
           Images: [
             {
-              url: "https://picsum.photos/500/500?random=14",
-              alt: "Casual Shirt Image",
+              url: VintagePalm,
+              alt: "Men's Palm Tree Vintage Fit Image",
             },
           ],
         },
 
         {
           _id: "8",
-          name: "Casual Shirt",
-          price: 50,
-          originalPrice: 70,
-          description: "A casual shirt for everyday wear.",
-          brand: "Versace",
+          name: "Apricot Fit for Women",
+          price: 16000,
+          originalPrice: 24000,
+          description: "A chic apricot fit for women.",
+          brand: "Mivine Essentials",
           material: "Cotton",
           sizes: ["M", "L"],
-          colors: ["Blue", "White"],
+          colors: ["Brown", "White"],
           Images: [
             {
-              url: "https://picsum.photos/500/500?random=15",
-              alt: "Casual Shirt Image",
+              url: ApricotFit,
+              alt: "Apricot Fit for Women Image",
             },
           ],
         },
 
         {
           _id: "9",
-          name: "Casual Shirt",
-          price: 50,
-          originalPrice: 70,
-          description: "A casual shirt for everyday wear.",
-          brand: "Versace",
+          name: "Vintage SHEIN shirt",
+          price: 10000,
+          originalPrice: 18000,
+          description: "A stylish vintage shirt for men.",
+          brand: "SHEIN",
           material: "Cotton",
           sizes: ["M", "L"],
-          colors: ["Blue", "White"],
+          colors: ["Brown", "White"],
           Images: [
             {
-              url: "https://picsum.photos/500/500?random=16",
-              alt: "Casual Shirt Image",
+              url: VintageSHEIN,
+              alt: "Vintage SHEIN Shirt Image",
             },
           ],
         },
 
         {
           _id: "10",
-          name: "Casual Shirt",
-          price: 50,
-          originalPrice: 70,
-          description: "A casual shirt for everyday wear.",
-          brand: "Versace",
+          name: "Tropical Vintage Fit",
+          price: 18000,
+          originalPrice: 24000,
+          description: "A stylish tropical shirt fit for women.",
+          brand: "Mivine Essentials",
           material: "Cotton",
           sizes: ["M", "L"],
-          colors: ["Blue", "White"],
+          colors: ["Brown"],
           Images: [
             {
-              url: "https://picsum.photos/500/500?random=17",
-              alt: "Casual Shirt Image",
+              url: TropicalFit,
+              alt: "Tropical Vintage Fit Image",
             },
           ],
         },
 
         {
           _id: "11",
-          name: "Casual Shirt",
-          price: 50,
-          originalPrice: 70,
-          description: "A casual shirt for everyday wear.",
-          brand: "Versace",
+          name: "Vintage Hawaii Fit",
+          price: 15000,
+          originalPrice: 25000,
+          description: "A Beautiful Vintage Hawaii Fit for Women.",
+          brand: "Mivine Essentials",
           material: "Cotton",
           sizes: ["M", "L"],
-          colors: ["Blue", "White"],
+          colors: ["Orange"],
           Images: [
             {
-              url: "https://picsum.photos/500/500?random=18",
-              alt: "Casual Shirt Image",
+              url: HawaiiFit,
+              alt: "Vintage Hawaii Fit Image",
             },
           ],
         },
 
         {
           _id: "12",
-          name: "Casual Shirt",
-          price: 50,
-          originalPrice: 70,
-          description: "A casual shirt for everyday wear.",
-          brand: "Versace",
+          name: "SHEIN Women's Fit",
+          price: 17000,
+          originalPrice: 25000,
+          description: "A Stylish SHEIN Women's Fit.",
+          brand: "Mivine Essentials",
           material: "Cotton",
           sizes: ["M", "L"],
-          colors: ["Blue", "White"],
+          colors: ["Green"],
           Images: [
             {
-              url: "https://picsum.photos/500/500?random=19",
-              alt: "Casual Shirt Image",
+              url: SheinFit,
+              alt: "SHEIN Women's Fit Image",
             },
           ],
         },
