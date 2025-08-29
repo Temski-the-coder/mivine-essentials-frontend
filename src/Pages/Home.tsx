@@ -26,7 +26,7 @@ import FloralFit from "../assets/Women's wears/Plus Size Floral Printed Short Sl
 
 const MenWears = [
   {
-    _id: "1",
+    _id: 1,
     name: "Gray and Brown Vintage Shirt",
     price: 10000,
     originalPrice: 15000,
@@ -44,7 +44,7 @@ const MenWears = [
   },
 
   {
-    _id: "2",
+    _id: 2,
     name: "dark brown and light Brown Vintage",
     price: 9000,
     originalPrice: 15000,
@@ -62,7 +62,7 @@ const MenWears = [
   },
 
   {
-    _id: "3",
+    _id: 3,
     name: "Guinness Designed Vintage Shirt",
     price: 10000,
     originalPrice: 15000,
@@ -80,7 +80,7 @@ const MenWears = [
   },
 
   {
-    _id: "4",
+    _id: 4,
     name: "Geo Print Vintage Fit",
     price: 18000,
     originalPrice: 24000,
@@ -98,7 +98,7 @@ const MenWears = [
   },
 
   {
-    _id: "5",
+    _id: 5,
     name: "Men's Paisley Fit",
     price: 17000,
     originalPrice: 24000,
@@ -116,7 +116,7 @@ const MenWears = [
   },
 
   {
-    _id: "6",
+    _id: 6,
     name: "Manfinity full fit for men",
     price: 18000,
     originalPrice: 26000,
@@ -134,7 +134,7 @@ const MenWears = [
   },
 
   {
-    _id: "7",
+    _id: 7,
     name: "Casual Street Style Fit",
     price: 15000,
     originalPrice: 20000,
@@ -152,7 +152,7 @@ const MenWears = [
   },
 
   {
-    _id: "8",
+    _id: 8,
     name: "Tropical vintage fit for men",
     price: 15000,
     originalPrice: 24000,
@@ -172,7 +172,7 @@ const MenWears = [
 
 const WomenWears = [
   {
-    _id: "1",
+    _id: 1,
     name: "Wide leg crop top two piece loose fit",
     price: 18000,
     originalPrice: 27000,
@@ -190,7 +190,7 @@ const WomenWears = [
   },
 
   {
-    _id: "2",
+    _id: 2,
     name: "Ensemble Fit",
     price: 18000,
     originalPrice: 25000,
@@ -208,7 +208,7 @@ const WomenWears = [
   },
 
   {
-    _id: "3",
+    _id: 3,
     name: "SHEIN Fit",
     price: 20000,
     originalPrice: 25000,
@@ -226,7 +226,7 @@ const WomenWears = [
   },
 
   {
-    _id: "4",
+    _id: 4,
     name: "SHEIN Fit 2",
     price: 17000,
     originalPrice: 24000,
@@ -244,7 +244,7 @@ const WomenWears = [
   },
 
   {
-    _id: "5",
+    _id: 5,
     name: "SHEIN Fit for Women",
     price: 18000,
     originalPrice: 24000,
@@ -262,7 +262,7 @@ const WomenWears = [
   },
 
   {
-    _id: "6",
+    _id: 6,
     name: "SHEIN Fit for Women",
     price: 18000,
     originalPrice: 24000,
@@ -280,7 +280,7 @@ const WomenWears = [
   },
 
   {
-    _id: "7",
+    _id: 7,
     name: "SHEIN Fit for Women",
     price: 18000,
     originalPrice: 24000,
@@ -298,7 +298,7 @@ const WomenWears = [
   },
 
   {
-    _id: "8",
+    _id: 8,
     name: "Floral Fit for Women",
     price: 17000,
     originalPrice: 25000,

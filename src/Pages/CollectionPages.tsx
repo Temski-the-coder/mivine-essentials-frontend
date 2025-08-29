@@ -17,7 +17,7 @@ import HawaiiFit from "../assets/Women's wears/Search WoMens Hawaiian button _ S
 import SheinFit from "../assets/Women's wears/SHEIN VCAY Plus Button Front Blouse & Tie Waist Shorts _ SHEIN USA.jpg"
 
 type Product = {
-  _id: string;
+  _id: number;
   name: string;
   price: number;
   originalPrice: number;
@@ -59,7 +59,7 @@ const CollectionPages = () => {
     setTimeout(() => {
       const fetchProducts = [
         {
-          _id: "1",
+          _id: 1,
           name: "Men's Plain two piece fit",
           price: 15000,
           originalPrice: 20000,
@@ -77,7 +77,7 @@ const CollectionPages = () => {
         },
 
         {
-          _id: "2",
+          _id: 2,
           name: "Women's Vintage fit",
           price: 15000,
           originalPrice: 17000,
@@ -95,7 +95,7 @@ const CollectionPages = () => {
         },
 
         {
-          _id: "3",
+          _id: 3,
           name: "Summer fit",
           price: 15000,
           originalPrice: 17000,
@@ -113,7 +113,7 @@ const CollectionPages = () => {
         },
 
         {
-          _id: "4",
+          _id: 4,
           name: "vintage fit with palm groove design",
           price: 10000,
           originalPrice: 20000,
@@ -131,7 +131,7 @@ const CollectionPages = () => {
         },
 
         {
-          _id: "5",
+          _id: 5,
           name: "Hommens Vintage Shirt design",
           price: 15000,
           originalPrice: 20000,
@@ -149,7 +149,7 @@ const CollectionPages = () => {
         },
 
         {
-          _id: "6",
+          _id: 6,
           name: "Cargo Fit",
           price: 16000,
           originalPrice: 23000,
@@ -167,7 +167,7 @@ const CollectionPages = () => {
         },
 
         {
-          _id: "7",
+          _id: 7,
           name: "Men's Palm Tree Vintage Fit",
           price: 11000,
           originalPrice: 18000,
@@ -185,7 +185,7 @@ const CollectionPages = () => {
         },
 
         {
-          _id: "8",
+          _id: 8,
           name: "Apricot Fit for Women",
           price: 16000,
           originalPrice: 24000,
@@ -203,7 +203,7 @@ const CollectionPages = () => {
         },
 
         {
-          _id: "9",
+          _id: 9,
           name: "Vintage SHEIN shirt",
           price: 10000,
           originalPrice: 18000,
@@ -221,7 +221,7 @@ const CollectionPages = () => {
         },
 
         {
-          _id: "10",
+          _id: 10,
           name: "Tropical Vintage Fit",
           price: 18000,
           originalPrice: 24000,
@@ -239,7 +239,7 @@ const CollectionPages = () => {
         },
 
         {
-          _id: "11",
+          _id: 11,
           name: "Vintage Hawaii Fit",
           price: 15000,
           originalPrice: 25000,
@@ -257,7 +257,7 @@ const CollectionPages = () => {
         },
 
         {
-          _id: "12",
+          _id: 12,
           name: "SHEIN Women's Fit",
           price: 17000,
           originalPrice: 25000,
