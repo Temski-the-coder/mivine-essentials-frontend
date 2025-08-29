@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
 import rabbitHero from "../../assets/rabbit-hero.webp";
-import featured from "../../assets/featured.webp";
-import mensCollection from "../../assets/mens-collection.webp";
-import womensCollection from "../../assets/womens-collection.webp";
+import download1 from "../../assets/download (1).jpg"
+import download2 from "../../assets/download (2).jpg"
+import premium1 from "../../assets/Modern Fashion Poster Design(Social Media post).jpg"
+import premium2 from "../../assets/Download premium png1.jpg"
+import premium3 from "../../assets/Download premium png 2.jpg"
+import fashion1 from "../../assets/Fashion sale Facebook post template.jpg"
+import face1 from "../../assets/Facebook Cover.jpg"
 import { Link } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { FaArrowTurnDown } from "react-icons/fa6";
 
-const heroImages = [rabbitHero, featured, mensCollection, womensCollection];
+const heroImages = [rabbitHero, download1, download2, premium1, premium2, premium3, fashion1, face1];
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);

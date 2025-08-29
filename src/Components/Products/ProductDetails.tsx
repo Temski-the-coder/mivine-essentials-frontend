@@ -7,9 +7,42 @@ import CasualWear from "../../assets/Men's wears/Manfinity Homme Men Random Stri
 import BeachFit from "../../assets/Men's wears/Men's Patchwork Print.jpg"
 import VintageCF from "../../assets/Men's wears/download (12).jpg"
 import BoyPatch from "../../assets/Men's wears/Boys Patched Pocket Front Shirt & Knot Front Trousers.jpg"
+import { useCart } from "../Cart/CartContext";
 
+interface SelectedProduct {
+    _id: string;
+    name: string;
+    price: number;
+    originalPrice: number;
+    description: string;
+    brand: string;
+    material: string;
+    sizes: string[];
+    Quantity: number;
+    colors: string[];
+    Images: {
+        url: string;
+        alt: string;
+    }[];
+  };
 
-const selectedProduct = {
+  interface RelatedProduct {
+    _id: string;
+    name: string;
+    price: number;
+    originalPrice: number;
+    description: string;
+    brand: string;
+    material: string;
+    sizes: string[];
+    colors: string[];
+    Images: {
+      url: string;
+      alt: string;
+    }[];
+  }
+
+const selectedProduct: SelectedProduct = {
   _id: "1",
   name: "Stylish Summer Fits",
   price: 12000,
@@ -33,7 +66,7 @@ const selectedProduct = {
   ],
 };
 
-const relatedProducts = [
+const relatedProducts: RelatedProduct[] = [
   {
     _id: "1",
     name: "Casual Shirt",
@@ -108,6 +141,7 @@ const relatedProducts = [
 ];
 
 const ProductDetails = () => {
+  const { addToCart } = useCart();
   const [mainImage, setMainImage] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
@@ -126,15 +160,22 @@ const ProductDetails = () => {
         duration: 1000,
       });
       return;
-    }
+    };
+
     setIsButtonDisabled(true);
+    addToCart({ _id: selectedProduct._id,
+  name: selectedProduct.name,
+  price: selectedProduct.price,
+  quantity,
+  image: mainImage,
+  Size: selectedSize
+});
+
+    toast.success("Product added to cart successfully!", { duration: 1000 });
+
     setTimeout(() => {
-      toast.success("Product added to cart successfully!", {
-        duration: 1000,
-      });
       setIsButtonDisabled(false);
-    }, 5000); // Re-enable button after 5 seconds
-    // Add the product to the cart logic here
+    }, 1000); // re-enable after 1s
   };
 
   return (

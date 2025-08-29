@@ -1,38 +1,30 @@
-const Checkout = {
-  _id: "12323",
-  createdAt: new Date(),
-  checkoutItems: [
-    {
-      productId: "1",
-      name: "Jacket",
-      color: "black",
-      size: "xl",
-      price: 300,
-      quantity: "1",
-      image: "https://picsum.photos/150?random=1",
-    },
+import { useCart } from "../Components/Cart/CartContext";
 
-    {
-      productId: "2",
-      name: "Dildo",
-      color: "brown",
-      size: "xl",
-      price: 200,
-      quantity: "2",
-      image: "https://picsum.photos/150?random=2",
-    },
-  ],
-  shippingAddress: {
-    address: "New London fashion street",
-    city: "Lagos",
-    Country: "Nigeria",
-  },
-};
+
 
 const OrderConfirmationPage = () => {
+  const { cartItems } = useCart();
+
+  const Checkout = {
+  _id: "12323",
+  createdAt: new Date(),
+  checkoutItems: cartItems,
+  shippingAddress: {
+      address: "New London Fashion Street",
+      city: "Lagos",
+      Country: "Nigeria",
+    },
+    paymentMethod: "Paystack", // ✅ dynamic later if you support multiple gateways
+  };
+
+  const subtotal = Checkout.checkoutItems.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
+
   const calculateEstimatedDelivery = (createdAt: Date | string) => {
     const orderDate = new Date(createdAt);
-    orderDate.setDate(orderDate.getDate() + 10);
+    orderDate.setDate(orderDate.getDate() + 10); //10 days delivery window
     return orderDate.toLocaleDateString();
   };
   return (
@@ -42,9 +34,9 @@ const OrderConfirmationPage = () => {
       </h1>
 
       {Checkout && (
-        <div className="p-6 rounded-lg border">
-          <div className="flex justify-between mb-20">
-            {/* Order Id and Date */}
+        <div className="p-6 rounded-lg border shadow-sm">
+          {/* Order Info */}
+          <div className="flex justify-between mb-10">
             <div>
               <h2 className="text-xl font-semibold">
                 Order ID: {Checkout._id}
@@ -53,7 +45,6 @@ const OrderConfirmationPage = () => {
                 Order Date: {new Date(Checkout.createdAt).toLocaleString()}
               </p>
             </div>
-            {/* Estimated Delivery */}
             <div>
               <p className="text-emerald-700 text-sm">
                 Estimated Delivery:{" "}
@@ -61,45 +52,52 @@ const OrderConfirmationPage = () => {
               </p>
             </div>
           </div>
-          {/* ordered items */}
-          <div className="mb-20">
+
+          {/* Ordered Items */}
+          <div className="mb-10">
             {Checkout.checkoutItems.map((item) => (
-              <div key={item.productId} className="flex items-center mb-4">
+              <div key={item._id} className="flex items-center mb-4 border-b pb-3">
                 <img
                   src={item.image}
                   alt={item.name}
                   className="w-16 h-16 rounded-lg object-cover mr-4"
                 />
                 <div>
-                  <h4 className="text-md font-semibold">{item.name}</h4>{" "}
+                  <h4 className="text-md font-semibold">{item.name}</h4>
                   <p className="text-sm text-gray-500">
-                    {item.color} | {item.size}
+                    {item.color} | {item.Size}
                   </p>
                 </div>
-
                 <div className="ml-auto text-right">
-                 <p className="text-md">${item.price}</p>
-                 <p className="text-sm text-gray-500">Qty: {item.quantity}</p>
+                  <p className="text-md font-semibold">
+                    ₦{(item.price * item.quantity).toLocaleString()}
+                  </p>
+                  <p className="text-sm text-gray-500">Qty: {item.quantity}</p>
                 </div>
               </div>
             ))}
           </div>
-        {/* Payment and delivery info */}
-        <div className="grid grid-cols-2 gap-8">
-        {/* payment info */}
-        <div>
-            <h4 className="text-lg font-semibold mb-2">Payment</h4>
-            <p className="text-gray-700">Paystack</p>
-        </div>
 
-        {/* Delivery info */}
-        <div>
-            <h4 className="text-lg font-semibold mb-2">Delivery</h4>
-            <p className="text-gray-500">{Checkout.shippingAddress.address}</p>
-            <p className="text-gray-500">{Checkout.shippingAddress.city}, {""} {Checkout.shippingAddress.Country}</p>
-        </div>
+          {/* Payment & Delivery */}
+          <div className="grid grid-cols-2 gap-8">
+            {/* Payment */}
+            <div>
+              <h4 className="text-lg font-semibold mb-2">Payment</h4>
+              <p className="text-gray-700">{Checkout.paymentMethod}</p>
+              <p className="font-medium">
+                Total Paid: ₦{subtotal.toLocaleString()}
+              </p>
+            </div>
 
-        </div>
+            {/* Delivery */}
+            <div>
+              <h4 className="text-lg font-semibold mb-2">Delivery</h4>
+              <p className="text-gray-500">{Checkout.shippingAddress.address}</p>
+              <p className="text-gray-500">
+                {Checkout.shippingAddress.city}, {Checkout.shippingAddress.Country}
+              </p>
+            </div>
+          </div>
         </div>
       )}
     </div>

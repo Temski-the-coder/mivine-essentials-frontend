@@ -14,6 +14,14 @@ import PaisleyVintage from "../assets/Men's wears/Men Paisley Scarf Print Shirt 
 import Manfinity from "../assets/Men's wears/Manfinity RSRT Men Graphic Print Shirt & Drawstring Waist Shorts Without Tee _ SHEIN USA.jpg"
 import StyleFit from "../assets/Men's wears/Teen Boys' Casual Street Style Short Sleeve Shirt And Long Pants Two Piece Set, Urban College Style.jpg"
 import TropicalVintage from "../assets/Men's wears/Men Tropical Print Shirt & Drawstring Waist Shorts Without Tee.jpg"
+import WideLeg from "../assets/Women's wears/Wide leg crop top two piece loose fit.jpg"
+import EnsembleFit from "../assets/Women's wears/Ensemble tee-shirt à manches.jpg"
+import SHEINFit from "../assets/Women's wears/SHEIN.jpg"
+import SHEINFit2 from "../assets/Women's wears/Welcome to SHEIN.jpg"
+import SHEINFit3 from "../assets/Women's wears/2pcs Women Plus Size Asymmetric Hem Top & Wide Leg Pants Set, Floral Design.jpg"
+import SHEINFit4 from "../assets/Women's wears/SHEIN VCAY Plus Button Front Blouse & Tie Waist Shorts _ SHEIN USA.jpg"
+import SHEINFit5 from "../assets/Women's wears/set due pezzi top a maniche lunghe stampa plus - Temu Italy.jpg"
+import FloralFit from "../assets/Women's wears/Plus Size Floral Printed Short Sleeve Jumpsuit.jpg"
 
 
 const MenWears = [
@@ -165,144 +173,144 @@ const MenWears = [
 const WomenWears = [
   {
     _id: "1",
-    name: "Casual Shirt",
-    price: 50,
-    originalPrice: 70,
-    description: "A casual shirt for everyday wear.",
-    brand: "Versace",
+    name: "Wide leg crop top two piece loose fit",
+    price: 18000,
+    originalPrice: 27000,
+    description: "A stylish wide-leg crop top two-piece set for women.",
+    brand: "Mivine Essentials",
     material: "Cotton",
     sizes: ["M", "L"],
-    colors: ["Blue", "White"],
+    colors: ["Black", "White", "Brown"],
     Images: [
       {
-        url: "https://picsum.photos/500/500?random=8",
-        alt: "Casual Shirt Image",
+        url: WideLeg,
+        alt: "Wide leg crop top two piece loose fit Image",
       },
     ],
   },
 
   {
     _id: "2",
-    name: "Casual Shirt",
-    price: 50,
-    originalPrice: 70,
-    description: "A casual shirt for everyday wear.",
-    brand: "Versace",
+    name: "Ensemble Fit",
+    price: 18000,
+    originalPrice: 25000,
+    description: "A stylish ensemble fit for women.",
+    brand: "Mivine Essentials",
     material: "Cotton",
     sizes: ["M", "L"],
     colors: ["Blue", "White"],
     Images: [
       {
-        url: "https://picsum.photos/500/500?random=9",
-        alt: "Casual Shirt Image",
+        url: EnsembleFit,
+        alt: "Ensemble Fit Image",
       },
     ],
   },
 
   {
     _id: "3",
-    name: "Casual Shirt",
-    price: 50,
-    originalPrice: 70,
-    description: "A casual shirt for everyday wear.",
-    brand: "Versace",
+    name: "SHEIN Fit",
+    price: 20000,
+    originalPrice: 25000,
+    description: "A stylish SHEIN fit for women.",
+    brand: "Mivine Essentials",
     material: "Cotton",
     sizes: ["M", "L"],
     colors: ["Blue", "White"],
     Images: [
       {
-        url: "https://picsum.photos/500/500?random=10",
-        alt: "Casual Shirt Image",
+        url: SHEINFit,
+        alt: "SHEIN Fit Image",
       },
     ],
   },
 
   {
     _id: "4",
-    name: "Casual Shirt",
-    price: 50,
-    originalPrice: 70,
-    description: "A casual shirt for everyday wear.",
-    brand: "Versace",
+    name: "SHEIN Fit 2",
+    price: 17000,
+    originalPrice: 24000,
+    description: "A stylish SHEIN fit for women.",
+    brand: "Mivine Essentials",
     material: "Cotton",
     sizes: ["M", "L"],
     colors: ["Blue", "White"],
     Images: [
       {
-        url: "https://picsum.photos/500/500?random=11",
-        alt: "Casual Shirt Image",
+        url: SHEINFit2,
+        alt: "SHEIN Fit 2 Image",
       },
     ],
   },
 
   {
     _id: "5",
-    name: "Casual Shirt",
-    price: 50,
-    originalPrice: 70,
-    description: "A casual shirt for everyday wear.",
-    brand: "Versace",
+    name: "SHEIN Fit for Women",
+    price: 18000,
+    originalPrice: 24000,
+    description: "A stylish SHEIN fit for women.",
+    brand: "Mivine Essentials",
     material: "Cotton",
     sizes: ["M", "L"],
     colors: ["Blue", "White"],
     Images: [
       {
-        url: "https://picsum.photos/500/500?random=12",
-        alt: "Casual Shirt Image",
+        url: SHEINFit3,
+        alt: "SHEIN Fit for Women Image",
       },
     ],
   },
 
   {
     _id: "6",
-    name: "Casual Shirt",
-    price: 50,
-    originalPrice: 70,
-    description: "A casual shirt for everyday wear.",
-    brand: "Versace",
+    name: "SHEIN Fit for Women",
+    price: 18000,
+    originalPrice: 24000,
+    description: "A stylish SHEIN fit for women.",
+    brand: "Mivine Essentials",
     material: "Cotton",
     sizes: ["M", "L"],
     colors: ["Blue", "White"],
     Images: [
       {
-        url: "https://picsum.photos/500/500?random=13",
-        alt: "Casual Shirt Image",
+        url: SHEINFit4,
+        alt: "SHEIN Fit for Women Image",
       },
     ],
   },
 
   {
     _id: "7",
-    name: "Casual Shirt",
-    price: 50,
-    originalPrice: 70,
-    description: "A casual shirt for everyday wear.",
-    brand: "Versace",
+    name: "SHEIN Fit for Women",
+    price: 18000,
+    originalPrice: 24000,
+    description: "A stylish SHEIN fit for women.",
+    brand: "Mivine Essentials",
     material: "Cotton",
     sizes: ["M", "L"],
-    colors: ["Blue", "White"],
+    colors: ["Green", "White"],
     Images: [
       {
-        url: "https://picsum.photos/500/500?random=14",
-        alt: "Casual Shirt Image",
+        url: SHEINFit5,
+        alt: "SHEIN Fit for Women Image",
       },
     ],
   },
 
   {
     _id: "8",
-    name: "Casual Shirt",
-    price: 50,
-    originalPrice: 70,
-    description: "A casual shirt for everyday wear.",
-    brand: "Versace",
+    name: "Floral Fit for Women",
+    price: 17000,
+    originalPrice: 25000,
+    description: "A stylish floral fit for women.",
+    brand: "Mivine Essentials",
     material: "Cotton",
     sizes: ["M", "L"],
-    colors: ["Blue", "White"],
+    colors: ["Orange", "White"],
     Images: [
       {
-        url: "https://picsum.photos/500/500?random=15",
-        alt: "Casual Shirt Image",
+        url: FloralFit,
+        alt: "Floral Fit for Women Image",
       },
     ],
   }, 

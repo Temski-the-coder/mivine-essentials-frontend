@@ -1,106 +1,81 @@
 import React from "react";
 import { IoPricetags } from "react-icons/io5";
-import { TbCurrencyNaira } from "react-icons/tb";
+import { useCart } from "../Cart/CartContext";
 
-type cartProducts = {
-  productId: number;
-  name: string;
-  Size: string;
-  quantity: string;
-  price: string;
-  image: string;
-};
+const CartContent: React.FC = () => {
+  const { cartItems, increaseQuantity, decreaseQuantity, removeItem } = useCart();
 
-type CartContentProps = {
-  cartProducts: cartProducts[];
-};
+const cartTotal = cartItems.reduce((sum, product) => {
+  return sum + product.price * product.quantity;
+}, 0);
 
-const cartProducts = [
-  {
-    productId: 1,
-    name: "Mens Classic Retro shirt CR-1",
-    Size: "M",
-    quantity: "1",
-    price: "15,000",
-    image:
-      "https://charlieharpershirts.com/wp-content/uploads/2024/02/gold.jpg",
-  },
-  {
-    productId: 2,
-    name: "Baggy Jeans",
-    Size: "L",
-    quantity: "1",
-    price: "10,000",
-    image:
-      "https://media.weekday.com/assets/003/65/93/6593b955567dee13ac6250b67d92756351134910_lg-1.jpg?imwidth=768",
-  },
-  {
-    productId: 3,
-    name: "Hawaiian Hibiscus Tribal Vintage Motif Family Matching Tank Maxi Dress and Hawaiian Shirt Ver 8 LT9",
-    Size: "M",
-    quantity: "1",
-    price: "35,000",
-    image:
-      "https://www.polynesianpride.co/cdn/shop/files/lt09-08052411_family-matching-tank-maxi-dress-and-hawaiian-shirt-3_1200x.jpg?v=1715249520",
-  },
-  {
-    productId: 4,
-    name: "PICKUR MIND Casual 3d Digital Print Vintage Beach Shirt Men",
-    Size: "M",
-    quantity: "1",
-    price: "28,600",
-    image:
-      "https://img.fantaskycdn.com/de70a1af3c1313a32eceba5003ab82df_750x.jpeg",
-  },
-];
-const CartContent: React.FC<CartContentProps> = ({ cartProducts }) => {
-  return (
-    <div>
-      {cartProducts.length === 0 ? (
-        <div className="text-center py-10 text-gray-500">
-          Your cart is empty.
-        </div>
-      ) : (
-        cartProducts.map((product, index) => (
-          <div
-            key={index}
-            className="flex items-start justify-between py-4 border-b"
-          >
-            <div className="flex items-start">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-20 h-24 object-cover mr-4 rounded"
-              />
-
-              <div>
-                <h3 className="w-25">{product.name}</h3>
-                <p className="text-sm text-gray-500"> size: {product.Size}</p>
-                <div className="flex items-start mt-2 gap-0.5">
-                  <button className="border rounded px-2 py-1 text-xl font-medium">
-                    -
-                  </button>
-                  <span className="mx-4 mt-2">{product.quantity}</span>
-                  <button className="border rounded px-2 py-1 text-xl font-medium">
-                    +
+return (
+  <div>
+    {cartItems.length === 0 ? (
+      <div className="text-center py-10 text-gray-500">Your cart is empty.</div>
+    ) : (
+      <>
+        {cartItems.map((product) => {
+          return (
+            <div
+              key={product._id}
+              className="flex items-start justify-between py-4 border-b"
+            >
+              <div className="flex items-start">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-20 h-24 object-cover mr-4 rounded"
+                />
+                <div>
+                  <h3>{product.name}</h3>
+                  <p className="text-sm text-gray-500">Size: {product.Size}</p>
+                  <div className="flex items-start mt-2 gap-0.5">
+                    <button
+                      className="border rounded px-2 py-1 text-xl font-medium"
+                      onClick={() => decreaseQuantity(product._id)}
+                    >
+                      -
+                    </button>
+                    <span className="mx-4 mt-2">{product.quantity}</span>
+                    <button
+                      className="border rounded px-2 py-1 text-xl font-medium"
+                      onClick={() => increaseQuantity(product._id)}
+                    >
+                      +
+                    </button>
+                  </div>
+                  <button
+                    onClick={() => removeItem(product._id)}
+                    className="mt-3 text-sm text-red-500 hover:underline"
+                  >
+                    Remove
                   </button>
                 </div>
               </div>
+              <div className="text-right">
+                <p>
+                  ₦{(product.price * product.quantity).toLocaleString("en-NG", {
+                    minimumFractionDigits: 0,
+                  })}
+                </p>
+                <IoPricetags className="h-6 w-6 mt-2 ml-auto" />
+              </div>
             </div>
-            <div>
-              <p className="flex">
-                <TbCurrencyNaira className="mt-0.5 text-xl" />
-                {product.price.toLocaleString()}
-              </p>
-              <button>
-                <IoPricetags className="h-6 w-6 mt-2 ml-6" />
-              </button>
-            </div>
-          </div>
-        ))
-      )}
-    </div>
-  );
+          );
+        })}
+        <div className="mt-6 border-t pt-4 text-right">
+          <p className="text-lg font-semibold">
+            Total: ₦
+            {cartTotal.toLocaleString("en-NG", {
+              minimumFractionDigits: 0,
+            })}
+          </p>
+        </div>
+      </>
+    )}
+  </div>
+);
 };
 
 export default CartContent;

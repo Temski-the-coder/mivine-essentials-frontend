@@ -1,55 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PayStackButton from "./PayStackButton";
+import { useCart } from "./CartContext";
 
-const cart = {
-  products: [
-    {
-      _id: "1",
-      name: "Casual Shirt",
-      price: 5000.0,
-      sizes: ["M", "L"],
-      colors: ["Blue", "White"],
-      Images: [
-        {
-          url: "https://picsum.photos/500/500?random=8",
-          alt: "Casual Shirt Image",
-        },
-      ],
-    },
 
-    {
-      _id: "2",
-      name: "Casual Shirt",
-      price: 5000.0,
-      sizes: ["M", "L"],
-      colors: ["Blue", "White"],
-      Images: [
-        {
-          url: "https://picsum.photos/500/500?random=9",
-          alt: "Casual Shirt Image",
-        },
-      ],
-    },
-
-    {
-      _id: "3",
-      name: "Casual Shirt",
-      price: 5000.0,
-      sizes: ["M", "L"],
-      colors: ["Blue", "White"],
-      Images: [
-        {
-          url: "https://picsum.photos/500/500?random=10",
-          alt: "Casual Shirt Image",
-        },
-      ],
-    },
-  ],
-  totalItems: 3,
-  totalPrice: 15000.0,
-};
 const CheckOut = () => {
+  const { cartItems } = useCart();
   const navigate = useNavigate();
   const [checkoutId, setCheckoutId] = useState<string | null>(null);
   const [shippingAddress, setShippingAddress] = useState({
@@ -74,6 +30,11 @@ const CheckOut = () => {
     // Navigate to order confirmed page or handle payment logic
     navigate("/order-confirmation");
   };
+
+  const subtotal = cartItems.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
 
   // PayStackButton props are defined in its own file or via TypeScript types elsewhere.
   return (
@@ -240,7 +201,7 @@ const CheckOut = () => {
               <div>
                 {/* paystack component */}
                 <PayStackButton
-                  amount={cart.totalPrice}
+                  amount={subtotal}
                   onSuccess={() => handlePaymentSuccess({})}
                   onError={() =>
                     alert("Payment Failed, Try Again after 1 minute")
@@ -253,42 +214,52 @@ const CheckOut = () => {
       </div>
       {/* Right section */}
       <div className="bg-gray-50 p-6 rounded-lg">
-        <h2 className="text-lg mb-4">Order Summary</h2>
-        <div className="border-t py-4 mb-4">
-          {cart.products.map((product, index) => (
+      <h2 className="text-lg mb-4 font-semibold">Order Summary</h2>
+
+      <div className="border-t py-4 mb-4">
+        {cartItems.length === 0 ? (
+          <p className="text-gray-500">No items in your cart.</p>
+        ) : (
+          cartItems.map((product) => (
             <div
-              key={index}
+              key={product._id}
               className="flex items-start justify-between py-2 border-b"
             >
               <div className="flex items-start">
                 <img
-                  src={product.Images[0].url}
-                  alt={product.Images[0].alt || product.name}
-                  className="w-20 h-24 object-cover mr-4"
+                  src={product.image}
+                  alt={product.name}
+                  className="w-20 h-24 object-cover mr-4 rounded"
                 />
                 <div>
-                  <h3 className="text-md">{product.name}</h3>
-                  <p className="text-gray-500">size: {product.sizes}</p>
-                  <p className="text-gray-500">Color: {product.colors}</p>
+                  <h3 className="text-md font-medium">{product.name}</h3>
+                  <p className="text-gray-500">Size: {product.Size}</p>
+                  <p className="text-gray-500">Qty: {product.quantity}</p>
                 </div>
               </div>
-              <p className="text-xl">${product.price?.toLocaleString()}</p>
+              <p className="text-xl">
+                ₦{(product.price * product.quantity).toLocaleString()}
+              </p>
             </div>
-          ))}
-        </div>
-        <div className="flex justify-between items-center text-lg mb-4">
-          <p>Subtotal</p>
-          <p>${cart.totalPrice?.toLocaleString()}</p>
-        </div>
-        <div className="flex justify-between items-center text-lg">
-          <p>Shipping</p>
-          <p>Free</p>
-        </div>
-        <div className="flex justify-between items-center text-lg mt-4 border-t pt-4">
-          <p>Total</p>
-          <p>${cart.totalPrice?.toLocaleString()}</p>
-        </div>
+          ))
+        )}
       </div>
+
+      <div className="flex justify-between items-center text-lg mb-2">
+        <p>Subtotal</p>
+        <p>₦{subtotal.toLocaleString()}</p>
+      </div>
+
+      <div className="flex justify-between items-center text-lg mb-2">
+        <p>Shipping</p>
+        <p className="text-green-600 font-medium">Free</p>
+      </div>
+
+      <div className="flex justify-between items-center text-lg mt-4 border-t pt-4 font-semibold">
+        <p>Total</p>
+        <p>₦{subtotal.toLocaleString()}</p>
+      </div>
+    </div>
     </div>
   );
 };

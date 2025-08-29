@@ -6,21 +6,11 @@ import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import CartDrawer from "../Layout/CartDrawer";
 import { IoMdClose } from "react-icons/io";
+import { useCart } from "../Cart/CartContext";
 
-type CartProduct = {
-  productId: number;
-  name: string;
-  Size: string;
-  quantity: string;
-  price: string;
-  image: string;
-};
 
-type NavBarProps = {
-  cartProducts: CartProduct[];
-};
-
-const NavBar: React.FC<NavBarProps> = ({ cartProducts }) => {
+const NavBar = () => {
+  const { cartItems } = useCart();
   const [openCart, setOpenCart] = useState(false);
   const [openMobileNav, setOpenMobileNav] = useState(false);
 
@@ -32,7 +22,11 @@ const NavBar: React.FC<NavBarProps> = ({ cartProducts }) => {
     setOpenCart(!openCart);
   };
 
-  const cartCount = cartProducts.length;
+  // ✅ safely fallback to empty array if undefined
+  const cartCount = (cartItems ?? []).reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   return (
     <>
@@ -116,7 +110,6 @@ const NavBar: React.FC<NavBarProps> = ({ cartProducts }) => {
       <CartDrawer
         openCart={openCart}
         toggleCartDrawer={toggleCartDrawer}
-        cartProducts={cartProducts}
       />
 
       {/* mobile navbar */}
