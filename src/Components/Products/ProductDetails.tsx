@@ -10,7 +10,7 @@ import BoyPatch from "../../assets/Men's wears/Boys Patched Pocket Front Shirt &
 import { useCart } from "../Cart/CartContext";
 
 interface SelectedProduct {
-    _id: string;
+    _id: number;
     name: string;
     price: number;
     originalPrice: number;
@@ -27,7 +27,7 @@ interface SelectedProduct {
   };
 
   interface RelatedProduct {
-    _id: string;
+    _id: number;
     name: string;
     price: number;
     originalPrice: number;
@@ -43,7 +43,7 @@ interface SelectedProduct {
   }
 
 const selectedProduct: SelectedProduct = {
-  _id: "1",
+  _id: 1,
   name: "Stylish Summer Fits",
   price: 12000,
   originalPrice: 15000,
@@ -68,7 +68,7 @@ const selectedProduct: SelectedProduct = {
 
 const relatedProducts: RelatedProduct[] = [
   {
-    _id: "1",
+    _id: 1,
     name: "Casual Shirt",
     price: 16000,
     originalPrice: 21000,
@@ -86,7 +86,7 @@ const relatedProducts: RelatedProduct[] = [
   },
 
   {
-    _id: "2",
+    _id: 2,
     name: "Beach fit",
     price: 25000,
     originalPrice: 30000,
@@ -104,7 +104,7 @@ const relatedProducts: RelatedProduct[] = [
   },
 
   {
-    _id: "3",
+    _id: 3,
     name: "Full Vintage Wear",
     price: 15000,
     originalPrice: 22000,
@@ -122,7 +122,7 @@ const relatedProducts: RelatedProduct[] = [
   },
 
   {
-    _id: "4",
+    _id: 4,
     name: "Boy patched full fit",
     price: 25000,
     originalPrice: 35000,
@@ -168,7 +168,8 @@ const ProductDetails = () => {
   price: selectedProduct.price,
   quantity,
   image: mainImage,
-  Size: selectedSize
+  Size: selectedSize,
+  color: selectedColor
 });
 
     toast.success("Product added to cart successfully!", { duration: 1000 });

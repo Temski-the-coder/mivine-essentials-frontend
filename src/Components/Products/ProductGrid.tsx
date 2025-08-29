@@ -7,7 +7,7 @@ interface ProductImage {
 }
 
 interface Product {
-  _id: string;
+  _id: number;
   Images: ProductImage[];
   name?: string;
   price?: number | string;
