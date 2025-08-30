@@ -89,11 +89,11 @@ const NavBar = () => {
             Admin <span>Panel</span>
           </Link>
 
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 border border-gray-300 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
             <label className="text-gray-500 hover:text-black">
-              <FaRegCircleUser className="h-6 w-6" />
+              <FaRegCircleUser className="h-5 w-5" />
             </label>
-            <select onChange={handleChange} className="border border-gray-300 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            <select onChange={handleChange}>
               <option value="" disabled selected>Account</option>
               <option value="login">Login</option>
               <option value="register">Register</option>
