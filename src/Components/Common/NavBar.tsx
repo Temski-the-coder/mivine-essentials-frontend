@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { HiBars3 } from "react-icons/hi2";
 import { MdOutlineShoppingCartCheckout } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import CartDrawer from "../Layout/CartDrawer";
 import { IoMdClose } from "react-icons/io";
@@ -13,6 +13,13 @@ const NavBar = () => {
   const { cartItems } = useCart();
   const [openCart, setOpenCart] = useState(false);
   const [openMobileNav, setOpenMobileNav] = useState(false);
+  const navigate = useNavigate();
+
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
+    if (value === "login") navigate("/login");
+    if (value === "register") navigate("/register");
+  };
 
   const toggleMobileNav = () => {
     setOpenMobileNav(!openMobileNav);
@@ -82,9 +89,16 @@ const NavBar = () => {
             Admin <span>Panel</span>
           </Link>
 
-          <Link to="/profile" className="text-gray-500 hover:text-black">
-            <FaRegCircleUser className="h-6 w-6" />
-          </Link>
+          <div className="flex items-center space-x-2">
+            <label className="text-gray-500 hover:text-black">
+              <FaRegCircleUser className="h-6 w-6" />
+            </label>
+            <select onChange={handleChange} className="border border-gray-300 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              <option value="" disabled selected>Account</option>
+              <option value="login">Login</option>
+              <option value="register">Register</option>
+            </select>
+          </div>
 
           <button
             onClick={toggleCartDrawer}
