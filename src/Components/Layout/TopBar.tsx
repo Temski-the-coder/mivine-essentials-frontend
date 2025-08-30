@@ -5,8 +5,8 @@ import { Typewriter } from "react-simple-typewriter";
 const TopBar = () => {
   return (
     <div className="bg-[#E67300] w-full text-white p-2">
-      <div className="container mx-auto flex justify-between md:justify-around items-center text-center">
-        <div className="flex md:flex items-center space-x-7 text-xs md:text-md hidden md:visible">
+      <div className="min-w-8xl md:container mx-auto flex justify-between md:justify-around items-center text-center">
+        <div className="hidden md:flex items-center space-x-7 text-xs md:text-md">
           <a href="#" className="hover:text-gray-300">
             <FaMeta className="w-4 h-4" />
           </a>
@@ -37,7 +37,7 @@ const TopBar = () => {
           </h1>
         </div>
 
-        <div className="text-xs flex md:text-sm hidden md:visible">
+        <div className="hidden md:flex text-xs md:text-sm">
           <a href="tel:+2349024863242" className="hover:text-gray-300">
             <h2 className="flex">
               <FaPhoneVolume className="mt-0.5" />

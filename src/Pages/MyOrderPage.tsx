@@ -74,7 +74,7 @@ const MyOrderPage = () => {
     navigate(`/order/${orderId}`)
   }
   return (
-  <div className="max-w-8xl mx-auto p-7 sm:p-6">
+  <div className="w-full md:max-w-8xl mx-auto p-7 sm:p-6">
     <h2 className="text-2xl md:text-xl font-bold mb-6">My Orders</h2>
     <div className="relative shadow-md sm:rounded-lg overflow-hidden"></div>
     <table className="min-w-full text-left text-gray-500">

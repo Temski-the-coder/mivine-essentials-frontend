@@ -38,7 +38,7 @@ const ProductManagement = () => {
                   </td>
                   <td className="p-4">${products.price}</td>
                   <td className="p-4">{products.sku}</td>
-                  <td className="p-4">
+                  <td className="p-4 flex">
                     <Link
                       to={`/admin/products/${products._id}/edit`}
                       className="bg-yellow-500 text-white px-2 py-1 rounded mr-2 hover:bg-yellow-600"

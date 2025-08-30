@@ -19,6 +19,8 @@ const NavBar = () => {
     const value = e.target.value;
     if (value === "login") navigate("/login");
     if (value === "register") navigate("/register");
+    if (value === "profile") navigate("/profile");
+    if (value === "admin") navigate("/admin");
   };
 
   const toggleMobileNav = () => {
@@ -37,7 +39,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="container flex mx-auto items-center justify-between px-6 py-4 border-b border-gray-700">
+      <nav className="w-full md:container flex mx-auto items-center justify-between px-4 md:px-6 py-3 md:py-4 border-b border-gray-700">
         <div>
           <Link to="/" className="text-md md:text-2xl logo">
             Mivine Essentials
@@ -84,7 +86,7 @@ const NavBar = () => {
         <div className="flex items-center space-x-4">
           <Link
             to="/admin"
-            className="bg-black px-3 py-1 flex gap-1 rounded-lg text-xs text-white hover:bg-blue-800 w-fit"
+            className="hidden bg-black px-3 py-1 md:flex gap-1 rounded-lg text-xs text-white hover:bg-blue-800 w-fit"
           >
             Admin <span>Panel</span>
           </Link>
@@ -97,6 +99,8 @@ const NavBar = () => {
               <option value="" disabled selected>Account</option>
               <option value="login">Login</option>
               <option value="register">Register</option>
+              <option value="profile">Profile</option>
+              <option value="admin" className="visible md:hidden">Admin Panel</option>
             </select>
           </div>
 
