@@ -64,7 +64,7 @@ const OrderManagement = () => {
                       onClick={() =>
                         handleStatusChange(orders._id, "Delivered")
                       }
-                      className="bg-green-500 text-xs md:text-md text-white px-7 md:px-4 py-2 md:py-2 rounded hover:bg-green-700"
+                      className="bg-green-500 text-xs md:text-md flex text-white px-15 md:px-4 py-0.5 md:py-2 rounded hover:bg-green-700"
                     >
                       Mark as Delivered
                     </button>

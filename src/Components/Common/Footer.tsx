@@ -1,13 +1,60 @@
+import { useRef, useState } from "react";
 import { FaInstagram, FaTiktok } from "react-icons/fa";
 import { FaMeta, FaXTwitter } from "react-icons/fa6";
 import { IoMdSend } from "react-icons/io";
 import { MdPhonelinkRing } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import emailjs from "emailjs-com";
+import { toast } from "sonner";
+import { FaArrowAltCircleRight } from "react-icons/fa";
+
 
 const Footer = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const form = useRef<HTMLFormElement>(null);
+  const navigate = useNavigate();
+
+  const handleHomeButton = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    // Add your logic to navigate to the home page
+    navigate("/");
+  };
+
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+
+    
+    if (!form.current) return;
+
+    setIsSubmitting(true);
+    emailjs
+      .sendForm(
+        "service_n163bpn",
+        "template_qyqpzy2",
+        form.current!,
+        "Giwir94S-ALfMoe0M"
+      )
+      .then(
+        () => {
+          setIsSubmitting(false);
+          form.current?.reset();
+          toast.success("Thank you for subscribing to our newsletter!", {duration: 1000});
+        },
+        (error) => {
+          console.error("FAILED...", error);
+          setIsSubmitting(false);
+          toast.error("An error occurred. Please try again.", {duration: 1000});
+        }
+      );
+  };
   return (
-    <footer className="border-t py-12">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4 lg-px-0">
+    <footer className="py-12">
+      <div onSubmit={handleHomeButton} className="flex justify-center md:justify-center items-center mb-8 border-none w-50 md:w-fit px-0 md:px-8 lg:px-2 py-2 md:py-1 bg-black text-white mx-auto rounded-full">
+        <button type="button" className="flex" onClick={handleHomeButton}>Back to home <FaArrowAltCircleRight className="mt-1.5 w-5 h-3.5"/></button>
+      </div>
+
+
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4 lg-px-0 border-t py-12">
         <div className="space-y-6">
           <h3 className="text-lg text-gray-800 mb-4">Newsletter</h3>
           <p className="">
@@ -19,17 +66,19 @@ const Footer = () => {
           </p>
 
           {/* newsletter form */}
-          <form action="" className="flex h-11 space-y-3">
+          <form onSubmit={handleSubmit} ref={form} className="flex h-11 space-y-3">
             <input
               type="email"
               placeholder="Be the first to know – drop your email"
-              className="p-3 w-full text-sm border-t border-l border-b border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all"
+              className="p-3 w-full text-sm border-t border-l border-b border-gray-300 rounded-l-md focus:outline-none focus:ring-0.5 focus:ring-gray-400 transition-all"
               required
             />
             <button
               type="submit"
+              disabled={isSubmitting}
               className="px-2 text-white hover:text-gray-300 bg-black rounded-r-md h-8"
             >
+              {isSubmitting}
               <IoMdSend className="text-md" />
             </button>
           </form>
