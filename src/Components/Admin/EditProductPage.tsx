@@ -19,7 +19,7 @@ type ProductData = {
   }[];
 };
 
-const EditProductPage = () => {
+const ProductForm = () => {
   const [productData, setProductData] = useState<ProductData>({
     name: "",
     description: "",
@@ -259,4 +259,4 @@ const EditProductPage = () => {
   );
 };
 
-export default EditProductPage;
+export default ProductForm;
