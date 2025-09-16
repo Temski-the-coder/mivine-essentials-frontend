@@ -205,6 +205,7 @@ const EditProductPage = () => {
             type="file"
             onChange={handleImageUpload}
             className="hidden"
+            name="image"
           />
           <div className="flex gap-4 mt-4">
             {productData.images.map((image, index) => (
