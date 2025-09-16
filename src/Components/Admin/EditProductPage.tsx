@@ -43,6 +43,8 @@ const EditProductPage = () => {
     ],
   });
 
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
   const handleProductName = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -54,6 +56,7 @@ const EditProductPage = () => {
     const files = e.target.files;
     const file = files && files[0];
     if (file) {
+      setSelectedFile(file); // save file for upload
       const imageUrl = URL.createObjectURL(file);
       setProductData((prevData) => ({
         ...prevData,
@@ -63,11 +66,40 @@ const EditProductPage = () => {
     console.log(file);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+ // Submit form with FormData
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log(productData);
-    
+
+    try {
+      const formData = new FormData();
+
+      // Append text fields
+      formData.append("name", productData.name);
+      formData.append("description", productData.description);
+      formData.append("price", productData.price.toString());
+      formData.append("countInStock", productData.countInStock.toString());
+      formData.append("sku", productData.sku);
+      formData.append("sizes", JSON.stringify(productData.sizes));
+      formData.append("colors", JSON.stringify(productData.colors));
+
+      // Append image file
+      if (selectedFile) {
+        formData.append("image", selectedFile); // backend expects "image"
+      }
+
+      // Send request to backend
+      const res = await fetch("http://localhost:5000/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await res.json();
+      console.log("Upload response:", data);
+
+      alert("Product uploaded successfully!");
+    } catch (error) {
+      console.error("Error uploading product:", error);
+    }
   };
 
   return (
