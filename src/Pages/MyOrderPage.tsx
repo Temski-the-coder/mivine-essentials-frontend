@@ -24,28 +24,51 @@ const MyOrderPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-  const fetchOrders = async () => {
-    try {
-      const res = await fetch("http://localhost:5000/api/orders/my-orders", {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`, // JWT from login
+    setTimeout(() => {
+      const mockOrders = [
+        {
+          _id: "1",
+          createdAt: new Date().toISOString(),
+          shippingAddress: {
+            city: "Lagos",
+            country: "Nigeria",
+            address: "123 Street",
+          },
+          orderItems: [
+            {
+              name: "Product 1",
+              price: 50,
+              image: "https://picsum.photos/500/500?random=1",
+            },
+          ],
+          totalPrice: 50,
+          isDelivered: false,
+          isPaid: true,
         },
-      });
 
-      const data = await res.json();
-      if (res.ok) {
-        setOrders(data); // save backend orders
-      } else {
-        console.error("Failed to fetch orders:", data.message);
-      }
-    } catch (error) {
-      console.error("Error fetching orders:", error);
-    }
-  };
-
-  fetchOrders();
-}, []);
+        {
+          _id: "2",
+          createdAt: new Date().toISOString(),
+          shippingAddress: {
+            city: "Lagos",
+            country: "Nigeria",
+            address: "123 Street",
+          },
+          orderItems: [
+            {
+              name: "Product 2",
+              price: 150,
+              image: "https://picsum.photos/500/500?random=2",
+            },
+          ],
+          totalPrice: 150,
+          isDelivered: false,
+          isPaid: true,
+        },
+      ];
+        setOrders(mockOrders);
+    }, 1000);
+  }, []);
 
   const handleRowClick = (orderId: string) => {
     navigate(`/order/${orderId}`)
